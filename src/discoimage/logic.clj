@@ -28,7 +28,7 @@
         y (+ center-y (* led (Math/sin angle)))]
     (picture-has-pixel? picture (Math/floor x) (Math/floor y))))
 
-(defn calculate
+(defn calculate-leds
   "Calculates the LED states."
   [picture {leds :leds} angle]
   (map (partial led-enabled? picture angle) leds))
