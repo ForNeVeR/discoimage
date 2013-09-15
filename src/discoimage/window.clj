@@ -49,7 +49,7 @@
             delta-angle (* frequency delta-time Math/PI 2)
             new-angle (normalize-angle (+ angle delta-angle))
             states (logic/calculate-leds picture leds)]
-        (graphics/render picture leds states)
+        (graphics/render picture leds new-angle states)
         (Display/update)
         (Display/sync fps)
         (recur new-time new-angle)))))

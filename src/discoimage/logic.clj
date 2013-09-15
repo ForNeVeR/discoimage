@@ -19,13 +19,21 @@
                 (nth x))]
     (= value 1)))
 
-(defn led-enabled?
-  "Checks whether the led should be enabled."
+(defn led-coords
+  "Determine absolute coordinates of LED."
   [picture angle led]
   (let [center-x (/ (picture-width picture) 2)
         center-y (/ (picture-height picture) 2)
         x (+ center-x (* led (Math/cos angle)))
         y (+ center-y (* led (Math/sin angle)))]
+    {:x x
+     :y y}))
+
+(defn led-enabled?
+  "Checks whether the led should be enabled."
+  [picture angle led]
+  (let [{x :x
+         y :y} (led-coords picture angle led)]
     (picture-has-pixel? picture (Math/floor x) (Math/floor y))))
 
 (defn calculate-leds
