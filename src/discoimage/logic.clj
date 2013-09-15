@@ -1,4 +1,5 @@
-(ns discoimage.logic)
+(ns discoimage.logic
+  (:use clojure.tools.logging))
 
 (defn picture-width
   "Determine X dimension of the picture."
@@ -38,5 +39,5 @@
 
 (defn calculate-leds
   "Calculates the LED states."
-  [picture {leds :leds} angle]
+  [picture leds angle]
   (map (partial led-enabled? picture angle) leds))

@@ -10,6 +10,10 @@
     (is (false? (picture-has-pixel? [[1 0]
                                      [0 1]] 1 1)))))
 
+(deftest led-coords-test
+  (testing "Testing led-coords function"
+    (is (= 10.0 (:x (led-coords [[]] 0 10))))))
+
 (deftest led-enabled-test
   (testing "Testing led-enabled function."
     (let [picture [[1 0]

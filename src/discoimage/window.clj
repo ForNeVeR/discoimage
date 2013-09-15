@@ -1,4 +1,5 @@
 (ns discoimage.window
+  (:use clojure.tools.logging)
   (:import [org.lwjgl Sys]
            [org.lwjgl.opengl Display DisplayMode GL11]
            [org.lwjgl.input Mouse Keyboard])
@@ -8,8 +9,8 @@
 (def fps 60)
 
 (defn get-time []
-  "Returns current time in seconds"
-  (/ (* 1000000 (Sys/getTime))
+  "Returns current time in seconds."
+  (/ (Sys/getTime)
     (Sys/getTimerResolution)))
 
 (defn normalize-angle
@@ -48,10 +49,11 @@
             delta-time (- new-time time)
             delta-angle (* frequency delta-time Math/PI 2)
             new-angle (normalize-angle (+ angle delta-angle))
-            states (logic/calculate-leds picture leds)]
+            states (logic/calculate-leds picture leds new-angle)]
+
         (graphics/render picture leds new-angle states)
         (Display/update)
-        (Display/sync fps)
+        ;(Display/sync fps)
         (recur new-time new-angle)))))
 
 (defn start
