@@ -1,4 +1,4 @@
-(ns discoimage.core-test
+(ns discoimage.logic-test
   (:require [clojure.test :refer :all]
             [discoimage.core :refer :all]))
 
