@@ -1,13 +1,15 @@
 # discoimage
 
-A Clojure library designed to ... well, that part is up to you.
+A program designed for POV display modeling.
 
 ## Usage
 
-FIXME
+1. Make sure you have the latest JDK installed.
+2. Install [leiningen](https://github.com/technomancy/leiningen).
+3. `lein run`
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 Friedrich von Never
 
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the MIT license.
